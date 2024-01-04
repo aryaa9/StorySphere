@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
-import Home from'./pages/Home'
+import Post from'./components/Post'
 import Header from'./components/Header'
-
+import Layout from './Layout';
+import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import { UserContextProvider } from './components/UserContext';
 function App() {
   return (
     <div>
       <BrowserRouter>
+      <UserContextProvider>
       <Routes>
-        <Route index element={
-          <main>
-          <Header />
-         <Home/>
-         <Home/>
-         <Home/>
-         </main>
-        }/> 
+        <Route path="/" element={<Layout/>}>
+        <Route index element={<IndexPage/>}/> 
+        <Route path={'/login'}element={<LoginPage/>}/>
+        <Route path={'/Register'}element={<RegisterPage/>}/>
+        <Route path={'/Register'}element={<RegisterPage/>}/>
+        </Route>
       </Routes>
+      </UserContextProvider>
+      
       </BrowserRouter>
 
     </div>
