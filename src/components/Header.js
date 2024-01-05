@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+        StorySphere
       </Link>
       <nav>
         {loading && <span>Loading...</span>}
