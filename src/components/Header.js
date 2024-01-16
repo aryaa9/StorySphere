@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../components/UserContext';
+import { UserContext } from './UserContext';
 
 export default function Header() {
   const { setUserInfo, userInfo } = useContext(UserContext);
@@ -20,11 +20,12 @@ export default function Header() {
         setUserInfo(userInfo);
       })
       .catch((error) => {
-        console.error(error);
+        console.error('Fetch error:', error);
       })
       .finally(() => {
         setLoading(false);
       });
+    
   }, [setUserInfo]);
 
   function logout() {
